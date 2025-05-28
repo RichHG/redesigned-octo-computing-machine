@@ -1,0 +1,151 @@
+/**
+ * Admin styles for the Van Builder
+ */
+
+/* Admin Page Container */
+.van-builder-admin-page {
+    margin: 20px 0;
+}
+
+/* Info Boxes */
+.van-builder-info-box {
+    background-color: #fff;
+    border: 1px solid #ccd0d4;
+    border-radius: 4px;
+    padding: 20px;
+    margin-top: 20px;
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.04);
+}
+
+.van-builder-info-box h2 {
+    margin-top: 0;
+    padding-bottom: 12px;
+    border-bottom: 1px solid #eee;
+}
+
+.van-builder-info-box code {
+    background-color: #f0f0f0;
+    padding: 3px 5px;
+    border-radius: 3px;
+}
+
+/* Model Uploader */
+.van-builder-model-uploader {
+    background-color: #fff;
+    border: 1px solid #ccd0d4;
+    border-radius: 4px;
+    padding: 20px;
+    margin-bottom: 20px;
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.04);
+}
+
+.van-builder-model-uploader h2 {
+    margin-top: 0;
+    padding-bottom: 12px;
+    border-bottom: 1px solid #eee;
+}
+
+#upload-spinner {
+    display: none;
+    vertical-align: middle;
+    margin-left: 10px;
+}
+
+/* Model Manager */
+.van-builder-model-manager {
+    background-color: #fff;
+    border: 1px solid #ccd0d4;
+    border-radius: 4px;
+    padding: 20px;
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.04);
+}
+
+.van-builder-model-manager h2 {
+    margin-top: 0;
+    padding-bottom: 12px;
+    border-bottom: 1px solid #eee;
+}
+
+.van-builder-model-manager h3 {
+    margin: 20px 0 15px;
+}
+
+/* Model Grid */
+.van-builder-model-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+    margin-top: 15px;
+}
+
+.van-builder-model-card {
+    background-color: #f8f8f8;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    padding: 15px;
+    position: relative;
+}
+
+.van-builder-model-card img {
+    width: 100%;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 3px;
+    margin-bottom: 10px;
+}
+
+.van-builder-model-card h4 {
+    margin: 0 0 10px 0;
+    font-size: 16px;
+}
+
+.van-builder-model-card p {
+    margin: 5px 0;
+    font-size: 13px;
+    color: #666;
+}
+
+.model-actions {
+    margin-top: 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.default-model-badge {
+    background-color: #e7f4e4;
+    color: #46b450;
+    padding: 3px 8px;
+    border-radius: 3px;
+    font-size: 12px;
+    font-weight: 600;
+}
+
+.delete-model {
+    color: #a00;
+    text-decoration: none;
+}
+
+.delete-model:hover {
+    color: #dc3232;
+    text-decoration: underline;
+}
+
+/* Responsive Grid */
+@media screen and (max-width: 1200px) {
+    .van-builder-model-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+@media screen and (max-width: 782px) {
+    .van-builder-model-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .van-builder-model-grid {
+        grid-template-columns: 1fr;
+    }
+}
