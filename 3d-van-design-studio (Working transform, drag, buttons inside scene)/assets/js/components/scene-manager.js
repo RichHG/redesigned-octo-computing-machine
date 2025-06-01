@@ -81,32 +81,69 @@ class SceneManager {
         this.animate();
     }
 
-    addLights() {
-        // Ambient light
-        const ambientLight = new THREE.AmbientLight(0xffffff, 0.5);
-        this.scene.add(ambientLight);
+   addLights() {
+    // Ambient light - reduced intensity
+    const ambientLight = new THREE.AmbientLight(0xffffff, 0.6); // Reduced from 0.8
 
-        // Directional light (sun)
-        const directionalLight = new THREE.DirectionalLight(0xffffff, 0.8);
-        directionalLight.position.set(10, 10, 10);
-        directionalLight.castShadow = true;
+    this.scene.add(ambientLight);
 
-        // Configure shadow properties
-        directionalLight.shadow.mapSize.width = 2048;
-        directionalLight.shadow.mapSize.height = 2048;
-        directionalLight.shadow.camera.near = 0.5;
-        directionalLight.shadow.camera.far = 50;
-        directionalLight.shadow.camera.left = -10;
-        directionalLight.shadow.camera.right = 10;
-        directionalLight.shadow.camera.top = 10;
-        directionalLight.shadow.camera.bottom = -10;
+    // Main directional light (sun) - slightly reduced
+    const directionalLight = new THREE.DirectionalLight(0xffffff, 0.8); // Reduced from 1.0
+    directionalLight.position.set(10, 10, 10);
+    directionalLight.castShadow = true;
+    
+    // Configure shadow properties
+    directionalLight.shadow.mapSize.width = 2048;
+    directionalLight.shadow.mapSize.height = 2048;
+    directionalLight.shadow.camera.near = 0.5;
+    directionalLight.shadow.camera.far = 50;
+    directionalLight.shadow.camera.left = -10;
+    directionalLight.shadow.camera.right = 10;
+    directionalLight.shadow.camera.top = 10;
+    directionalLight.shadow.camera.bottom = -10;
+    directionalLight.shadow.bias = -0.001;
+    
+    this.scene.add(directionalLight);
 
-        this.scene.add(directionalLight);
+    // Front fill light - reduced
+    const frontLight = new THREE.DirectionalLight(0xffffff, 0.5); // Reduced from 0.5
+    frontLight.position.set(0, 5, 10);
+    frontLight.castShadow = false;
+    this.scene.add(frontLight);
 
-        // Hemisphere light (sky and ground)
-        const hemisphereLight = new THREE.HemisphereLight(0xddeeff, 0x202020, 0.5);
-        this.scene.add(hemisphereLight);
-    }
+    // Back rim light - reduced
+    const backLight = new THREE.DirectionalLight(0xffffff, 0.2); // Reduced from 0.4
+    backLight.position.set(0, 5, -10);
+    backLight.castShadow = false;
+    this.scene.add(backLight);
+
+    // Side fill light - reduced
+    const sideLight = new THREE.DirectionalLight(0xffffff, 0.2); // Reduced from 0.4
+    sideLight.position.set(-10, 5, 0);
+    sideLight.castShadow = false;
+    this.scene.add(sideLight);
+
+    // Opposite side fill light - reduced
+    const oppositeSideLight = new THREE.DirectionalLight(0xffffff, 0.2); // Reduced from 0.3
+    oppositeSideLight.position.set(-10, 5, 0);
+    oppositeSideLight.castShadow = false;
+    this.scene.add(oppositeSideLight);
+
+    // Bottom fill light - reduced
+    const bottomLight = new THREE.DirectionalLight(0xffffff, 0.1); // Reduced from 0.2
+    bottomLight.position.set(0, -5, 0);
+    bottomLight.castShadow = false;
+    this.scene.add(bottomLight);
+
+    // Hemisphere light - reduced intensity
+    const hemisphereLight = new THREE.HemisphereLight(
+        0xddeeff, // Sky color
+        0x202020, // Ground color
+        0.5       // Reduced from 0.7
+    );
+    this.scene.add(hemisphereLight);
+}
+
 
     addGrid() {
         if (this.gridHelper) {
